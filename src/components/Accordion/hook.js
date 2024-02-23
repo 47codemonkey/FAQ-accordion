@@ -1,15 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectExpandedItem } from '../../store/accordion/toggleSelectors';
-import { toggleAccrodion } from '../../store/accordion/toggleActions';
+import { selectAccordionItem } from '../../store/FAQ/accrodionSelectors';
+import { toggleAccordion } from '../../store/FAQ/accordionSlice';
 
 export const useAccordion = () => {
-  const expandedItem = useSelector(selectExpandedItem);
+  const openItem = useSelector(selectAccordionItem);
   const dispatch = useDispatch();
 
   const handleClick = (id) => {
-    dispatch(toggleAccrodion(id));
+    dispatch(toggleAccordion(id));
   };
 
-  return { expandedItem, handleClick };
+  return { openItem, handleClick };
 };

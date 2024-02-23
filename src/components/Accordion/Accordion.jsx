@@ -72,7 +72,7 @@ import { IconPlus } from '../../assets/icons/IconPlus';
 import { IconMinus } from '../../assets/icons/IconMinus';
 
 export const Accordion = ({ items }) => {
-  const { expandedItem, handleClick } = useAccordion();
+  const { openItem, handleClick } = useAccordion();
 
   return (
     <div className="wrapper">
@@ -82,9 +82,9 @@ export const Accordion = ({ items }) => {
           <div key={id}>
             <div onClick={() => handleClick(id)}>
               {question}
-              {expandedItem === id ? <IconMinus /> : <IconPlus />}
+              {openItem === id ? <IconMinus /> : <IconPlus />}
             </div>
-            {expandedItem === id ? <p>{answer}</p> : false}
+            {openItem === id ? <p>{answer}</p> : false}
           </div>
         ))}
       </div>

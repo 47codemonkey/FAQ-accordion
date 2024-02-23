@@ -1,5 +1,10 @@
-import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import { devToolsEnhancer } from '@redux-devtools/extension';
-import { rootReducer } from './rootReducer';
+import { accordionReducer } from './FAQ/accordionSlice';
 
-export const store = createStore(rootReducer, devToolsEnhancer());
+export const store = configureStore({
+  reducer: {
+    accordion: accordionReducer,
+  },
+  devTools: devToolsEnhancer(),
+});
