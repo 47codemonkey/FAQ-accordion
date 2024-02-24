@@ -1,3 +1,29 @@
+import { useAccordion } from './hook';
+
+import { IconPlus } from '../../assets/icons/IconPlus';
+import { IconMinus } from '../../assets/icons/IconMinus';
+
+export const Accordion = ({ items }) => {
+  const { openItem, handleClick } = useAccordion();
+
+  return (
+    <div className="wrapper">
+      <h1>FAQs</h1>
+      <div className="accordion-item">
+        {items.map(({ id, question, answer }) => (
+          <div key={id}>
+            <div onClick={() => handleClick(id)}>
+              {question}
+              {openItem === id ? <IconMinus /> : <IconPlus />}
+            </div>
+            {openItem === id ? <p>{answer}</p> : false}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // import { useState } from 'react';
 
 // import {IconPlus} from '../../assets/icons/IconPlus'
@@ -65,29 +91,3 @@
 // };
 
 ///////////////////////////////////////////////////////////////
-
-import { useAccordion } from './hook';
-
-import { IconPlus } from '../../assets/icons/IconPlus';
-import { IconMinus } from '../../assets/icons/IconMinus';
-
-export const Accordion = ({ items }) => {
-  const { openItem, handleClick } = useAccordion();
-
-  return (
-    <div className="wrapper">
-      <h1>FAQs</h1>
-      <div className="accordion-item">
-        {items.map(({ id, question, answer }) => (
-          <div key={id}>
-            <div onClick={() => handleClick(id)}>
-              {question}
-              {openItem === id ? <IconMinus /> : <IconPlus />}
-            </div>
-            {openItem === id ? <p>{answer}</p> : false}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
