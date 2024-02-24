@@ -1,16 +1,25 @@
 import { useAccordion } from './hook';
+import { IconPlus } from 'src/assets/icons/IconPlus';
+import { IconMinus } from 'src/assets/icons/IconMinus';
 
-import { IconPlus } from '../../assets/icons/IconPlus';
-import { IconMinus } from '../../assets/icons/IconMinus';
+type Item = {
+  id: number;
+  question: string;
+  answer: string;
+};
 
-export const Accordion = ({ items }) => {
+type AccordionProps = {
+  items: Item[];
+};
+
+export const Accordion: React.FC<AccordionProps> = ({ items }) => {
   const { openItem, handleClick } = useAccordion();
 
   return (
     <div className="wrapper">
       <h1>FAQs</h1>
       <div className="accordion-item">
-        {items.map(({ id, question, answer }) => (
+        {items.map(({ id, question, answer }: Item) => (
           <div key={id}>
             <div onClick={() => handleClick(id)}>
               {question}

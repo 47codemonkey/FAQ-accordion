@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { devToolsEnhancer } from '@redux-devtools/extension';
 import { accordionReducer } from './FAQ/accordionSlice';
 
 export const store = configureStore({
   reducer: {
     accordion: accordionReducer,
   },
-  devTools: devToolsEnhancer(),
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

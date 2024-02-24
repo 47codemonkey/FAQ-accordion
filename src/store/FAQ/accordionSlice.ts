@@ -1,14 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
-  openItem: false,
+  openItem: false as number | boolean,
 };
 
 export const accordionSlice = createSlice({
   name: 'accordion',
   initialState,
   reducers: {
-    toggleAccordion(state, action) {
+    toggleAccordion(state, action: PayloadAction<number>) {
       state.openItem = state.openItem === action.payload ? false : action.payload;
     },
   },
