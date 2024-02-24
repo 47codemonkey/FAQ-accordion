@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
+import { AccordionStateType } from 'src/types/accordion';
 
-const initialState = {
-  openItem: false as number | boolean,
+const initialState: AccordionStateType = {
+  openItem: false,
 };
 
 export const accordionSlice = createSlice({
