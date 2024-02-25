@@ -1,6 +1,9 @@
 import { useAccordion } from './hook';
 import { IconPlus } from 'src/assets/icons/IconPlus';
 import { IconMinus } from 'src/assets/icons/IconMinus';
+import { IconStar } from 'src/assets/icons/IconStar';
+
+import './accordion.css';
 
 type Item = {
   id: number;
@@ -16,18 +19,21 @@ export const Accordion: React.FC<AccordionProps> = ({ items }) => {
   const { openItem, handleClick } = useAccordion();
 
   return (
-    <div className="wrapper">
-      <h1>FAQs</h1>
-      <div className="accordion-item">
-        {items.map(({ id, question, answer }: Item) => (
-          <div key={id}>
-            <div onClick={() => handleClick(id)}>
+    <div className="container">
+      <div className="faq_wrapper">
+        <div className="faq_title_wrapper">
+          <IconStar />
+          <h1 className="faq_title">FAQs</h1>
+        </div>
+        <ul className="faq_list">
+          {items.map(({ id, question, answer }: Item) => (
+            <li key={id} className="faq_item" onClick={() => handleClick(id)}>
               {question}
               {openItem === id ? <IconMinus /> : <IconPlus />}
-            </div>
-            {openItem === id ? <p>{answer}</p> : false}
-          </div>
-        ))}
+              {openItem === id ? <div className="faq_answer">{answer}</div> : false}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

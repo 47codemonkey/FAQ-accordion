@@ -1,5 +1,7 @@
+import './header-svg.css';
+
 export const HeaderBackground = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="320" fill="none" viewBox="0 0 1440 320">
+  <svg xmlns="http://www.w3.org/2000/svg" height="320" fill="none" viewBox="0 0 1440 320" className="header-svg">
     <g clipPath="url(#a)">
       <path fill="#301534" d="M0 0h1440v320H0z" />
       <path
