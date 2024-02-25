@@ -1,5 +1,5 @@
-import { Header } from '../components/Header/Header';
-import { FrequentlyAskedQuestions } from '../components/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
+import { Header } from 'src/components/Header/Header';
+import { FrequentlyAskedQuestions } from 'src/components/FrequentlyAskedQuestions/FrequentlyAskedQuestions';
 
 export const MainPage = () => {
   return (

@@ -28,9 +28,9 @@ export const Accordion: React.FC<AccordionProps> = ({ items }) => {
         <ul className="faq_list">
           {items.map(({ id, question, answer }: Item) => (
             <li key={id} className="faq_item" onClick={() => handleClick(id)}>
-              {question}
+              <span>{question}</span>
               {openItem === id ? <IconMinus /> : <IconPlus />}
-              {openItem === id ? <div className="faq_answer">{answer}</div> : false}
+              {openItem === id ? <span className="faq_answer">{answer}</span> : false}
             </li>
           ))}
         </ul>
@@ -104,5 +104,3 @@ export const Accordion: React.FC<AccordionProps> = ({ items }) => {
 //     </div>
 //   );
 // };
-
-///////////////////////////////////////////////////////////////
